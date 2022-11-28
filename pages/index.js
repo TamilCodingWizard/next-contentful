@@ -17,12 +17,12 @@ export const getStaticProps = async () => {
 
 export default function Home({ trips }) {
   console.log(trips);
-  return <Grid container spacing={2}>
+  return <Grid container spacing={5} my={5}>
     {
       trips && trips.map((trip) => {
         return (
-          <Grid item key={trip.sys.id}>
-             <TripCard/>
+          <Grid  xs={12} sm={6} lg={4} item key={trip.sys.id}>
+             <TripCard trip={trip}/>
           </Grid>
         )
       })

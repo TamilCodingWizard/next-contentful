@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import Navbar from '../components/Navbar';
+import { Container } from '@mui/system';
 
 
 
@@ -27,7 +28,9 @@ function MyApp({ Component, pageProps }) {
   return <ThemeProvider theme={theme}>
     <CssBaseline/>
     <Navbar/>
-   <Component {...pageProps} />
+    <Container maxWidth='lg'>
+      <Component {...pageProps} />
+   </Container>
    </ThemeProvider>
 }
 

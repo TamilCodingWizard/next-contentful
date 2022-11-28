@@ -5,30 +5,38 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { Chip, styled } from '@mui/material';
+import  Image  from 'next/image';
+import Link  from 'next/link';
 
-const TripCard = () => {
+
+const StyledCard = styled(Card) ({
+  maxWidth:400,
+  margin:'auto',
+  "&:hover": {
+    elevation:40,
+    boxShadow:"rgba(0,0,0,0.3) 0px 15px 15px"
+  }
+})
+
+const TripCard = ({trip}) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        height="140"
-        image="/static/images/cards/contemplative-reptile.jpg"
-        alt="green iguana"
-      />
+    <StyledCard >
+      <Image  src={'https:' + trip.fields.thumbnail.fields.file.url} alt="Thumbnail" width={400} height={200}/>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Lizard
+          {trip.fields.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          {trip.fields.brief}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+      <CardActions sx={{display:'flex',justifyContent:'flex-end'}}>
+        <Link href={`/trip/${trip.fields.slug}`} legacyBehavior> 
+          <Chip label='read more...' sx={{background:'#fff'}}></Chip>
+        </Link>
       </CardActions>
-    </Card>
+    </StyledCard>
   )
 }
 
