@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
 
-const PageNotFound = ( ) => {
+const PageNotFound = () => {
 
    const route = useRouter()
 
