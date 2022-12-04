@@ -12,6 +12,7 @@ export const getStaticProps = async () => {
     props: {
       trips: response.items,
     },
+    revalidate: 1
   };
 };
 
