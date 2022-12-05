@@ -1,4 +1,4 @@
-import { Stack, Typography,Box } from "@mui/material";
+import { Stack, Typography,Box, Skeleton } from "@mui/material";
 import Image from "next/legacy/image";
 import React from "react";
 import client from "./../../config/contentful";
@@ -46,6 +46,17 @@ export const getStaticProps = async ({ params }) => {
 const TripDetail = ({ trip }) => {
   console.log(trip);
   const { title, brief, contentImage, attractions, description } = trip.fields;
+
+  if (!trip) {
+    return <Stack alignItems='center' spacing={5} mb={10}>
+      <Skeleton width='75%' height="400px" variant="rectangular" animation="wave"></Skeleton>
+      <Stack width='75%' >
+        <Typography variant="h1" width='75%'><Skeleton /></Typography>
+        <Typography variant="h3" width='35%'><Skeleton /></Typography>
+        <Typography variant="h4" width='55%'><Skeleton /></Typography>
+      </Stack>
+    </Stack>
+  }
   return (
     <Stack spacing={5} mb={10}>
       <Image
