@@ -46,7 +46,7 @@ export const getStaticProps = async ({ params }) => {
 const TripDetail = ({ trip }) => {
   console.log(trip);
 
-  if (!trip) {
+  if (trip) {
     return <Stack alignItems='center' spacing={5} mb={10}>
       <Skeleton width='75%' height="400px" variant="rectangular" animation="wave"></Skeleton>
       <Stack width='75%' >
@@ -56,7 +56,7 @@ const TripDetail = ({ trip }) => {
       </Stack>
     </Stack>
   }
-  
+
   const { title, brief, contentImage, attractions, description } = trip.fields;
 
   
