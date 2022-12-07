@@ -46,8 +46,9 @@ export const getStaticProps = async ({ params }) => {
 const TripDetail = ({ trip }) => {
   console.log(trip);
 
-  if (trip) {
-    return <Stack alignItems='center' spacing={5} mb={10}>
+  if (!trip) {
+    console.log('showing fallback page')
+    return <Stack alignItems='center' spacing={2} mb={10}>
       <Skeleton width='75%' height="400px" variant="rectangular" animation="wave"></Skeleton>
       <Stack width='75%' >
         <Typography variant="h1" width='75%'><Skeleton /></Typography>
