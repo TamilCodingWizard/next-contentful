@@ -18,7 +18,11 @@ const theme = createTheme({
     fontFamily:'Poppins',
     h2: {
       fontFamily:'Alex Brush'
+    },
+    h3: {
+      fontFamily:'Alex Brush'
     }
+
   }
 })
 
